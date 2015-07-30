@@ -1,0 +1,112 @@
+/**
+ * Theme Name:  Cécile Bonnet (child of Clea Base)
+ * Theme URI:   
+ * Description: Un thème pour un site "impact"
+ * Version:     1.0.0
+ * Author:      Anne-Laure Delpech
+ * Author URI:  http://parcours-performance.com
+ * Tags:        
+ * Text Domain: 
+ * License:     GNU General Public License v2.0 or later
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * Template:    clea-base
+ */
+ 
+ 
+/*****************************************************
+*
+* Header
+*
+******************************************************/
+.ald-unique-logo a img {
+  float: left;
+}
+
+#site-description {
+  margin-left: 10px;
+  float: left;
+}
+
+@media only screen and (min-width: 760px) {
+	#menu-secondary >.wrap {
+	  width: 95% ;
+	}
+
+	#header {
+	   min-height: 115px;  
+	}
+
+	.top-search {
+	  display: none;
+	}
+
+	#sidebar-header {
+		margin-top: 10px;
+	}
+}
+
+
+
+#menu-primary {
+  margin: 1px auto -35px;
+}
+
+/********************************************************** 
+réglage couleurs
+***********************************************************/
+#menu-primary li li:hover,
+#menu-primary li li:hover > a,
+#menu-primary li a:hover, 
+#menu-primary li:hover > a, 
+#menu-primary li.current-menu-item > a,
+#menu-secondary-has-children li a {
+	background-color: #cddc39;
+	text-decoration: none;
+	
+}
+
+
+
+#menu-secondary li a:active,
+#menu-secondary li.current-menu-item >a, 
+#menu-secondary li a:hover {
+	background-color: #643075 ; 			/* primary color */
+	color : #cddc39 ; 			/* secondary color */
+}
+
+.page-numbers.current, 
+a.page-numbers:hover {
+	background-color: #643075 ; 	/* secondary color */
+	color: #cddc39 !important; 				/* primary color */
+}
+ 
+.page-numbers, 
+.page-links a, 
+.loop-nav a {
+	background-color: #cddc39 ; /* primary color */
+	color : #643075; /* secondary color */
+
+}
+
+
+/**********************************************************
+* Page d'accueil
+**********************************************************/
+
+
+
+/* primary sidebar
+****************************************/
+
+#sidebar-primary .widget {
+	border: 1px solid #252525;
+	padding: 8px;
+}
+
+#sidebar-primary .widget hr {
+	border-top: 2px dashed #252525;
+	width: 80%;
+	margin-right: auto ;
+	margin-left: auto ;
+	background-color: #bc101a;
+}
