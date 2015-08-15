@@ -126,13 +126,7 @@ a.page-numbers:hover {
 
 /* and to add fall back fonts */
 
-h3 { 
+h1, h2, h3, h4, h5, h6 { 
 	font-family: CorradineHandwriting, Georgia, Palatino, Times New Roman, serif !important; 
-	font-size: 1.9em !important;
-	font-weight: 600 !important;
 } 
 
-h3 a{
-	font-size: 100% !important;
-	font-weight: 600 !important;
-}
