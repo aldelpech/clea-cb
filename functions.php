@@ -19,6 +19,9 @@ add_action( 'wp_enqueue_scripts', 'clea_cecile_b_enqueue_scripts' );
 
 /* Register and load styles. */
 add_action( 'wp_enqueue_scripts', 'clea_cecile_b_enqueue_styles', 4 ); 
+
+/* remove header font settings from customizer */
+add_action( 'customize_register', 'clea_cecile_b_remove_custom', 1000 );
  
 function clea_cecile_b_enqueue_styles() {
 
@@ -45,6 +48,14 @@ function clea_cecile_b_enqueue_scripts() {
 	if ( is_page_template( 'page/cb-front-page-test1.php' ) ) {
 		wp_enqueue_script( 'jquery-masonry' );
 	}
+}
+
+/* source http://wordpress.stackexchange.com/questions/189484/removing-non-native-customizer-settings-from-a-child-theme
+*/
+function clea_cecile_b_remove_custom($wp_customize) {
+  // $wp_customize->remove_setting('theme_font_body-lobster-two-400'); // does NOT WORK
+  $wp_customize->remove_control('theme-fonts-header');  	// removes the whole title font control
+  // $wp_customize->remove_section('fonts');					// remove whole font section - OK
 }
 
 ?>
