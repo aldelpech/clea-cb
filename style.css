@@ -110,3 +110,29 @@ a.page-numbers:hover {
 	margin-left: auto ;
 	background-color: #bc101a;
 }
+
+/**********************************************************
+* incorporation police corradine - TEST
+**********************************************************/
+@font-face {
+	font-family: 'CorradineHandwriting';
+		src: url('fonts/corradine.eot'); 
+		src: url('fonts/corradine.eot?#iefix') format('embedded-opentype'),
+		url('fonts/corradine.woff2') format('woff2'),
+		url('fonts/corradine.woff') format('woff'),
+		url('fonts/corradine.ttf') format('truetype'),
+		url('fonts/corradine.svg#wf') format('svg');
+}
+
+/* and to add fall back fonts */
+
+h3 { 
+	font-family: CorradineHandwriting, Georgia, Palatino, Times New Roman, serif !important; 
+	font-size: 1.9em !important;
+	font-weight: 600 !important;
+} 
+
+h3 a{
+	font-size: 100% !important;
+	font-weight: 600 !important;
+}

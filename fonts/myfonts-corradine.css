@@ -1,0 +1,35 @@
+/**
+ * @license
+ * MyFonts Webfont Build ID 3066842, 2015-07-28T13:40:41-0400
+ * 
+ * The fonts listed in this notice are subject to the End User License
+ * Agreement(s) entered into by the website owner. All other parties are 
+ * explicitly restricted from using the Licensed Webfonts(s).
+ * 
+ * You may obtain a valid license at the URLs below.
+ * 
+ * Webfont: CorradineHandwriting by Corradine Fonts
+ * URL: http://www.myfonts.com/fonts/corradine/handwriting/regular/
+ * Copyright: Copyright (c) 2010 by Manuel Eduardo Corradine. All rights reserved.
+ * Licensed pageviews: 10,000
+ * 
+ * 
+ * License: http://www.myfonts.com/viewlicense?type=web&buildid=3066842
+ * 
+ * © 2015 MyFonts Inc
+*/
+
+
+/* @import must be at top of file, otherwise CSS will not work */
+@import url("//hello.myfonts.net/count/2ecbda");
+
+  
+@font-face {
+	font-family: 'CorradineHandwriting';
+		src: url('fonts/corradine.eot'); 
+		src: url('fonts/corradine.eot?#iefix') format('embedded-opentype'),
+		url('fonts/corradine.woff2') format('woff2'),
+		url('fonts/corradine.woff') format('woff'),
+		url('fonts/corradine.ttf') format('truetype'),
+		url('fonts/corradine.svg#wf') format('svg');
+}
