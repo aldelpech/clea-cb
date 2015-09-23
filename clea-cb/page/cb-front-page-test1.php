@@ -72,6 +72,7 @@ get_header(); // Loads the header.php template. ?>
 							</header><!-- .entry-header -->
 							<div class="entry-summary">
 								<?php the_excerpt(); ?>
+								<a class="read-more" href="<?php get_permalink( get_the_ID() ); ?>"> Lire la suite</a>
 							</div><!-- .entry-summary -->
 							<p class="entry-meta">
 							<span class="categories">  </span>
