@@ -11,13 +11,73 @@
 	}
 }
 
-.pp-container {
+/* pour maquette pleine largeur */
+
+.page-template-cb-front-test1 #container {
 	margin: 5px;
 	width: 100% ;
+	max-width: 100%;
+	padding-top: 5px;
+}
+
+.page-template-cb-front-test1 #menu-primary, 
+.page-template-cb-front-test1 .topbar,
+.page-template-cb-front-test1 #main,
+.page-template-cb-front-test1 #menu-subsidiary,
+.page-template-cb-front-test1 #footer {
+	max-width: 1080px;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+.ald-unique-logo a img {
+    margin-top: -15px;
 }
 
 
+.page-template-cb-front-test1 #sidebar-subsidiary {
+    border: none;
+	color: white;
+} 
 
+.page-template-cb-front-test1 #sidebar-subsidiary .widget-title {
+	/* border-bottom: none; */
+	color: white;
+}
+
+.page-template-cb-front-test1 #sidebar-subsidiary a{
+	color: white;
+}
+
+.page-template-cb-front-test1 #sidebar-subsidiary a:hover{
+	color: #ddd;
+}
+
+
+.page-template-cb-front-test1 .header-image {
+	max-width: 1500px;
+    max-height: 400px;
+}
+
+.page-template-cb-front-test1 aside#sidebar-subsidiary {
+	background-color: transparent;
+	max-width: 1080px;
+}
+
+.page-template-cb-front-test1 header#header {
+    background-color: transparent;
+	min-height: 0;
+    margin-top: 0px !important;
+	padding-top: 0;
+    max-width: 1080px;
+}
+
+.page-template-cb-front-test1 .full-page {
+    width: 100%;
+    background-color: #4c858d;
+}
+
+/* FIN maquette pleine largeur */
 
 /* Makes two columns */
 .pp-item {
@@ -201,7 +261,7 @@
 .cb-image {
 	position: relative;
 	width: 100%;
-	height: 350px;
+	max-height: 350px; 
 	overflow: hidden;
 }
 #got-gridbox figure img { 
@@ -310,4 +370,34 @@ div#got-gridbox:hover figure:not(:hover) { opacity: 0.4; }
     margin-left: 1%;
 }
 
+/********************************************
+* mailchimp forms 
+*********************************************/
 
+.page-template-cb-front-test1 #mc_embed_signup {
+	background: transparent;
+	font: inherit;
+	color: white;
+}
+
+.page-template-cb-front-test1 #mc_embed_signup .asterisk {
+    color: #ed693b;
+    font-size: 200%;
+    font-family: Helvetica,Arial,sans-serif;
+}
+
+.page-template-cb-front-test1 #mc_embed_signup .mc-field-group .asterisk {
+    top: 40px;
+}
+
+.page-template-cb-front-test1 #mc_embed_signup h2 {
+    font-weight: bold;
+    padding: 0;
+    margin: 15px 0;
+    font-size: 1.4em;
+}
+
+.page-template-cb-front-test1 #mc_embed_signup .button {
+    background-color: #ed693b;
+    margin: auto;
+}

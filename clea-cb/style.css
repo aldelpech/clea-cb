@@ -218,7 +218,7 @@ h6 {
 
 #sidebar-secondary .widget,
 #sidebar-primary .widget {
-    border-bottom: 2px solid #4c858d;
+    border-bottom: none;
     padding: 20px 0;
     margin: 0 8px;
 }
@@ -235,7 +235,7 @@ h6 {
     color: #4c858d;
     background: none;
     border-bottom: 1px dotted #ed693b;
-	font-variant: small-caps;
+	font-variant: normal;
     font-weight: 600;
     text-align: center;
     text-align: -webkit-center;
@@ -277,13 +277,13 @@ aside#sidebar-subsidiary {
 }
 
 #sidebar-subsidiary .widget {
-	border: 2px solid #4c858d;
+	border: none;
     padding: 2% 1%;
-    border-radius: 15px;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
 }
 
+#sidebar-subsidiary .widget:last-child {
+	border-right: none;
+}
 
 #sidebar-subsidiary .widget-title {
     padding: 5px;
@@ -291,7 +291,7 @@ aside#sidebar-subsidiary {
     color: #4c858d;
     background: none;
     border-bottom: 1px dotted #ed693b;
-	font-variant: small-caps;
+	font-variant: normal;
     font-weight: 600;
     text-align: center;
     text-align: -webkit-center;
