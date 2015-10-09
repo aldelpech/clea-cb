@@ -845,6 +845,7 @@ hr {
 		padding: 5px;
 	}
 
+/* 
 	.bloc-article img { 
 		  height: 150px; 
 		  width: auto;
@@ -873,7 +874,7 @@ hr {
 		background: none; 
 		border: 1px solid #ed693b !important;
 	}
-
+*/
 	.bloc-article .entry-summary {
 		font-size: 95%;
 		line-height: 1.4;

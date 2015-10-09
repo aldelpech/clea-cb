@@ -98,17 +98,21 @@ get_header( 'test1' ); // Loads the header.php template. ?>
 		<?php wp_reset_query(); ?>
 
 	</section>
-
-	<div id="content" class="hfeed">
 	<br />
 	<hr />
 	<br />
+	<section class="cb-post-list">
+
 	<h2>Autre version</h2>
 		<!-- Begin excerpts area. -->
-		<?php $loop = new WP_Query(
+		<?php 
+		// set the "paged" parameter (use 'page' if the query is on a static front page)
+		$paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
+		
+		$loop = new WP_Query(
 			array(
 				'post_type' => 'post',
-				'posts_per_page' => 8,
+				'posts_per_page' => 5,
 				'tax_query' => array(
 					array(
 						'taxonomy' => 'post_format',
@@ -128,13 +132,14 @@ get_header( 'test1' ); // Loads the header.php template. ?>
 					)
 				),
 				'category__not_in'	=> '72', /* exclude category "AIDE" */
-				'post__not_in' => $do_not_duplicate
+				'post__not_in' => $do_not_duplicate,
+				'paged' 			=> $paged,
+				'post_status' => 'publish', /* show only published posts */
 			)
 		); ?>
 
 		<?php if ( $loop->have_posts() ) : ?>
 
-			<div class="content-secondary">
 
 				<?php while ( $loop->have_posts() ) : $loop->the_post(); $do_not_duplicate[] = get_the_ID();  ?>
 	
@@ -142,16 +147,27 @@ get_header( 'test1' ); // Loads the header.php template. ?>
 
 				<?php endwhile; ?>
 
-			</div><!-- .content-secondary -->
 
 		<?php endif; ?>
 		<!-- End excerpts area. --->
 
 
-
+		<!-- http://wordpress.stackexchange.com/questions/174907/how-to-use-the-posts-navigation-for-wp-query-and-get-posts -->
+		<?php 
+		$GLOBALS['wp_query']->max_num_pages = $loop->max_num_pages;
+		
+		// echos the return of get_the_posts_pagination()
+		the_posts_pagination( array(
+			'mid_size' => 2,
+			'prev_text' => __( 'Plus récents', 'clea-base' ),
+			'next_text' => __( 'Plus anciens', 'clea-base' ),
+			'screen_reader_text' => __( 'autres articles', 'clea-base' ),
+		) ); ?>
+		
+		
 		<?php wp_reset_query(); ?>
 
-	</div><!-- #content -->
+	</section><!-- #section -->
 	
 	
 	

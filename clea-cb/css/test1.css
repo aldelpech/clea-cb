@@ -227,9 +227,11 @@
 ****************************************/
 
 @media only screen and (min-width: 760px) {
+	.cb-post-list,
 	.flexbox-list {
 		float: left;
 		width: 63.265%;
+		overflow: visible;
 	}
 }
 
@@ -400,4 +402,37 @@ div#got-gridbox:hover figure:not(:hover) { opacity: 0.4; }
 .page-template-cb-front-test1 #mc_embed_signup .button {
     background-color: #ed693b;
     margin: auto;
+}
+
+/********************************************
+* Mise en forme de la liste d'articles "autre version" 
+*********************************************/
+.page-template-cb-front-test1 .bloc-article {
+    border: 1px solid #ddd ;
+	border-radius: 15px;
+	-moz-border-radius: 15px;
+	-webkit-border-radius: 15px;
+}
+
+.page-template-cb-front-test1 .bloc-article a img {
+    border: none !important;
+	padding: 0;
+}
+
+.page-template-cb-front-test1 .bloc-article img {
+	max-height: 350px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.page-template-cb-front-test1 .bloc-article {
+    padding: 0; 
+}
+
+.page-template-cb-front-test1 .bloc-article h3.entry-title {
+    text-align: center;
+}
+
+.page-template-cb-front-test1 .bloc-article .categories a{
+	color: white;
 }
