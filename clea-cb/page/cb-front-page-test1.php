@@ -59,7 +59,7 @@ get_header( 'test1' ); // Loads the header.php template. ?>
 						<?php if ( current_theme_supports( 'get-the-image' ) ) get_the_image( array( 'meta_key' => 'Thumbnail', 'size' => 'large' ) ); ?>
 						</div>
 						<div class="categorie">
-								<span class="categories"><?php the_category(', '); ?></span>
+								<span class="categories"><?php the_category(' '); ?></span>
 						</div>
 						<figcaption>
 							<header class="entry-header">

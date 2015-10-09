@@ -417,6 +417,9 @@ div#got-gridbox:hover figure:not(:hover) { opacity: 0.4; }
 .page-template-cb-front-test1 .bloc-article a img {
     border: none !important;
 	padding: 0;
+	border-radius: 15px 15px 0 0;
+    -webkit-border-radius: 15px 15px 0 0;
+    -moz-border-radius: 15px 15px 0 0;
 }
 
 .page-template-cb-front-test1 .bloc-article img {
@@ -430,9 +433,40 @@ div#got-gridbox:hover figure:not(:hover) { opacity: 0.4; }
 }
 
 .page-template-cb-front-test1 .bloc-article h3.entry-title {
-    text-align: center;
+    margin-top: 0;
+    display: inline-block;
+	font-size: 180%;
 }
 
 .page-template-cb-front-test1 .bloc-article .categories a{
 	color: white;
 }
+
+.page-template-cb-front-test1 .bloc-article .categories {
+    background-color: #ed693b;
+    border-radius: 15px 5px 5px 15px;
+    -moz-border-radius: 15px 5px 5px 15px;
+    -webkit-border-radius: 15px 5px 5px 15px;
+    padding: 8px;
+    float: right;
+    margin-right: -15px;
+    position: relative;
+    top: -20px;
+}
+
+.page-template-cb-front-test1 .bloc-article .categories a::after {
+    content: "\f178";
+    font-family: FontAwesome;
+    color: white;
+    margin-left: 6px;
+    margin-right: 0;
+}
+
+.page-template-cb-front-test1 header.entry-header {
+    text-align: center;
+}
+
+.page-template-cb-front-test1 .bloc-article .categories a {
+    font-size: 95%;
+}
+

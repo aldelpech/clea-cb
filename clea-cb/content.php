@@ -21,14 +21,13 @@
 	<article id="post-<?php the_ID(); ?>" class="bloc-article <?php hybrid_entry_class(); ?>">
 
 		<?php if ( current_theme_supports( 'get-the-image' ) ) get_the_image( array( 'meta_key' => 'Thumbnail', 'size' => 'large' ) ); ?>
+		<span class="categories"><?php the_category(' '); ?></span>
 		<header class="entry-header">
 			<?php echo apply_atomic_shortcode( 'entry_title', '[entry-title tag="h3"]' ); ?>
 		</header><!-- .entry-header -->
 		<span class="entry-summary"><?php echo(get_the_excerpt()); ?></span>
-		<a class="read-more" href="<?php get_permalink( get_the_ID() ); ?>">Lire la suite</a>
-		<p class="entry-meta">
-			<?php echo apply_atomic_shortcode( 'entry_byline', '<span class="entry-byline">' . __( '[entry-published] [entry-edit-link before=" | "]', 'unique' ) . '</span>' ); ?>
-			<span class="categories"><?php the_category(', '); ?></span>
+		<i class="fa fa-eye"></i><a class="read-more" href="<?php get_permalink( get_the_ID() ); ?>">Lire L'article</a>
+
 		</p>
 	</article><!-- .hentry -->
 	<?php } ?>
