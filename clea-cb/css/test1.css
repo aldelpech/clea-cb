@@ -470,3 +470,17 @@ div#got-gridbox:hover figure:not(:hover) { opacity: 0.4; }
     font-size: 95%;
 }
 
+.page-template-cb-front-test1 a.read-more::before {
+    content: "\f06e";
+    font-family: FontAwesome;
+    margin-left: 2px;
+    margin-right: 6px;
+	text-decoration: none;
+    display: inline-block;
+}
+
+.page-template-cb-front-test1 .bloc-article .entry-summary {
+    font-size: 90%;
+    padding: 0 10px 5px 10px;
+    display: inline-block;
+}

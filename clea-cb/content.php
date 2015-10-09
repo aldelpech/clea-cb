@@ -25,8 +25,8 @@
 		<header class="entry-header">
 			<?php echo apply_atomic_shortcode( 'entry_title', '[entry-title tag="h3"]' ); ?>
 		</header><!-- .entry-header -->
-		<span class="entry-summary"><?php echo(get_the_excerpt()); ?></span>
-		<i class="fa fa-eye"></i><a class="read-more" href="<?php get_permalink( get_the_ID() ); ?>">Lire L'article</a>
+		<span class="entry-summary"><?php echo(get_the_excerpt()); ?> <a class="read-more" href="<?php get_permalink( get_the_ID() ); ?>">Lire L'article</a></span>
+
 
 		</p>
 	</article><!-- .hentry -->
