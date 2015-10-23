@@ -1,26 +1,26 @@
 <?php
 /**
- * Template Name: maquette accueil CB
+ * Template Name: accueil CB
  */
+
+$do_not_duplicate = array();
 
 get_header(); // Loads the header.php template. ?>
 
-	<!-- Begin featured area. --->
-	<div class="feature">
+<?php get_sidebar( 'primary' ); // Loads the sidebar-primary.php template. ?>
 
-		<center><h3>Maquette à créer</h3></center>
-		<p>ce que tu veux ici ou ailleurs</p>
-	</div>
-	<!-- End featured area. -->
+	<section class="cb-post-list">
 
-	
-	<div id="content" class="hfeed">
-
+	<h2>Les derniers articles</h2>
 		<!-- Begin excerpts area. -->
-		<?php $loop = new WP_Query(
+		<?php 
+		// set the "paged" parameter (use 'page' if the query is on a static front page)
+		$paged = ( get_query_var( 'paged' ) ) ? absint( get_query_var( 'paged' ) ) : 1;
+		
+		$loop = new WP_Query(
 			array(
 				'post_type' => 'post',
-				'posts_per_page' => 4,
+				'posts_per_page' => 8,
 				'tax_query' => array(
 					array(
 						'taxonomy' => 'post_format',
@@ -39,44 +39,43 @@ get_header(); // Loads the header.php template. ?>
 						'operator' => 'NOT IN'
 					)
 				),
-				'post__not_in' => $do_not_duplicate
+				'category__not_in'	=> '72', /* exclude category "AIDE" */
+				'post__not_in' => $do_not_duplicate,
+				'paged' 			=> $paged,
+				'post_status' => 'publish', /* show only published posts */
 			)
 		); ?>
 
 		<?php if ( $loop->have_posts() ) : ?>
 
-			<div class="content-secondary">
 
 				<?php while ( $loop->have_posts() ) : $loop->the_post(); $do_not_duplicate[] = get_the_ID();  ?>
-
-					<article id="post-<?php the_ID(); ?>" class="<?php hybrid_entry_class(); ?>">
-
-							<?php if ( current_theme_supports( 'get-the-image' ) ) get_the_image( array( 'meta_key' => 'Thumbnail', 'size' => 'thumbnail' ) ); ?>
-
-							<header class="entry-header">
-								<?php echo apply_atomic_shortcode( 'entry_title', '[entry-title tag="h2"]' ); ?>
-								<?php echo apply_atomic_shortcode( 'entry_byline', '<div class="entry-byline">' . __( 'Published on [entry-published] [entry-edit-link before=" | "]', 'unique' ) . '</div>' ); ?>
-							</header><!-- .entry-header -->
-
-							<div class="entry-summary">
-								<?php the_excerpt(); ?>
-							</div><!-- .entry-summary -->
-
-					</article><!-- .hentry -->
+	
+					<?php get_template_part( 'content', ( post_type_supports( get_post_type(), 'post-formats' ) ? get_post_format() : get_post_type() ) ); ?>
 
 				<?php endwhile; ?>
 
-			</div><!-- .content-secondary -->
 
 		<?php endif; ?>
 		<!-- End excerpts area. --->
 
 
-
+		<!-- http://wordpress.stackexchange.com/questions/174907/how-to-use-the-posts-navigation-for-wp-query-and-get-posts -->
+		<?php 
+		$GLOBALS['wp_query']->max_num_pages = $loop->max_num_pages;
+		
+		// echos the return of get_the_posts_pagination()
+		the_posts_pagination( array(
+			'mid_size' => 1,
+			'prev_text' => __( 'Plus récents', 'clea-base' ),
+			'next_text' => __( 'Plus anciens', 'clea-base' ),
+			'screen_reader_text' => __( 'autres articles', 'clea-base' ),
+		) ); ?>
+		
+		
 		<?php wp_reset_query(); ?>
 
-	</div><!-- #content -->
-
-<?php // get_sidebar( 'primary' ); // Loads the sidebar-primary.php template. ?>
-
+	</section><!-- #section -->	
+	
+	
 <?php get_footer(); // Loads the footer.php template. ?>

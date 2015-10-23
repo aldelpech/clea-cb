@@ -14,14 +14,42 @@
  */
 
 
-/* Register and load scripts. */
-add_action( 'wp_enqueue_scripts', 'clea_cecile_b_enqueue_scripts' );
+// Do theme setup on the 'after_setup_theme' hook.
+add_action( 'after_setup_theme', 'clea_cecile_b_theme_setup', 5 ); 
 
-/* Register and load styles. */
-add_action( 'wp_enqueue_scripts', 'clea_cecile_b_enqueue_styles', 4 ); 
 
-/* remove header font settings from customizer */
-add_action( 'customize_register', 'clea_cecile_b_remove_custom', 1000 );
+function clea_cecile_b_theme_setup() {
+
+	/* Register and load scripts. */
+	add_action( 'wp_enqueue_scripts', 'clea_cecile_b_enqueue_scripts' );
+
+	/* Register and load styles. */
+	add_action( 'wp_enqueue_scripts', 'clea_cecile_b_enqueue_styles', 4 ); 
+
+	/* remove header font settings from customizer */
+	add_action( 'customize_register', 'clea_cecile_b_remove_custom', 1000 );
+
+	/* Add support for a custom header image (logo). */
+	add_theme_support(
+		'custom-header',
+		array(
+			'width'       => 1500,
+			'height'      => 400,
+			'flex-height' => true,
+			'flex-width'  => false,
+			'header-text' => false
+		)
+	); 
+
+	// add theme support for WordPress featured image and post thumbnails
+	add_theme_support( 'featured-header' );
+	add_theme_support( 'post-thumbnails' ); 
+	
+} 
+
+
+
+	
  
 function clea_cecile_b_enqueue_styles() {
 

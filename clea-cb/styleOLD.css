@@ -19,7 +19,7 @@
 *
 ******************************************************/
 .ald-unique-logo a img {
-  /* float: left; */
+  float: left;
 }
 
 #site-description {
@@ -34,7 +34,7 @@
 }
 
 hgroup#branding {
-    /* top: -45px; */
+    top: -45px;
 }
 
 @media only screen and (min-width: 760px) {
@@ -161,7 +161,7 @@ a.page-numbers:hover {
 }
 
 /**********************************************************
-* incorporation police corradine 
+* incorporation police corradine - TEST
 **********************************************************/
 @font-face {
 	font-family: 'CorradineHandwriting';
@@ -274,8 +274,6 @@ aside#sidebar-subsidiary {
 	display: -ms-flexbox;      /* TWEENER - IE 10 */
 	display: -webkit-flex;     /* NEW - Chrome */
 	display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
-	background-color: transparent;
-	max-width: 1080px;
 }
 
 #sidebar-subsidiary .widget {
@@ -1172,187 +1170,4 @@ aside#sidebar-before-front-page .row .row-item {
 
 footer#footer {
     background-color: transparent;
-}
-
-
-/* pour maquette pleine largeur */
-
-#container {
-	margin: 5px;
-	width: 100% ;
-	max-width: 100%;
-	padding-top: 5px;
-}
-
-#menu-primary, 
-.topbar,
-#main,
-#menu-subsidiary,
-#footer {
-	max-width: 1080px;
-	margin-left: auto;
-    margin-right: auto;
-}
-
-.ald-unique-logo a img {
-    /* margin-top: -15px; */
-}
-
-
-#sidebar-subsidiary {
-    border: none;
-	color: white;
-} 
-
-#sidebar-subsidiary .widget-title {
-	/* border-bottom: none; */
-	color: white;
-}
-
-#sidebar-subsidiary a{
-	color: white;
-}
-
-#sidebar-subsidiary a:hover{
-	color: #ddd;
-}
-
-
-.header-image {
-	max-width: 1500px;
-    height: 400px;
-}
-
-aside#sidebar-subsidiary {
-	background-color: transparent;
-	max-width: 1080px;
-}
-
-header#header {
-    background-color: transparent;
-    max-width: 1500px;
-	padding-left: 0 !important;
-	padding-right: 0 !important;
-}
-
-.full-page {
-    width: 100%;
-    background-color: #4c858d;
-	margin-top: 15px;
-}
-
-/* FIN maquette pleine largeur */
-
-
-/********************************************
-* Mise en forme de la liste d'articles "autre version" 
-*********************************************/
-.bloc-article {
-    border: 1px solid #ddd ;
-	border-radius: 15px;
-	-moz-border-radius: 15px;
-	-webkit-border-radius: 15px;
-}
-
-.bloc-article a img {
-    border: none !important;
-	padding: 0;
-	border-radius: 15px 15px 0 0;
-    -webkit-border-radius: 15px 15px 0 0;
-    -moz-border-radius: 15px 15px 0 0;
-}
-
-.bloc-article img {
-	max-height: 350px;
-    overflow: hidden;
-    width: 100%;
-}
-
-.bloc-article {
-    padding: 0; 
-}
-
-.bloc-article h3.entry-title {
-    margin-top: 0;
-    display: inline-block;
-	font-size: 180%;
-}
-
-.bloc-article .categories a{
-	color: white;
-}
-
-.bloc-article .categories {
-    background-color: #ed693b;
-    border-radius: 15px 5px 5px 15px;
-    -moz-border-radius: 15px 5px 5px 15px;
-    -webkit-border-radius: 15px 5px 5px 15px;
-    padding: 8px;
-    float: right;
-    margin-right: -15px;
-    position: relative;
-    top: -20px;
-}
-
-.bloc-article .categories a::after {
-    content: "\f178";
-    font-family: FontAwesome;
-    color: white;
-    margin-left: 6px;
-    margin-right: 0;
-}
-
-header.entry-header {
-    text-align: center;
-}
-
-.bloc-article .categories a {
-    font-size: 95%;
-}
-
-a.read-more::before {
-    content: "\f06e";
-    font-family: FontAwesome;
-    margin-left: 2px;
-    margin-right: 6px;
-	text-decoration: none;
-    display: inline-block;
-}
-
-.bloc-article .entry-summary {
-    font-size: 90%;
-    padding: 0 10px 5px 10px;
-    display: inline-block;
-}
-
-/********************************************
-* mailchimp forms 
-*********************************************/
-
-#mc_embed_signup {
-	background: transparent;
-	font: inherit;
-	color: white;
-}
-
-#mc_embed_signup .asterisk {
-    color: #ed693b;
-    font-size: 200%;
-    font-family: Helvetica,Arial,sans-serif;
-}
-
-#mc_embed_signup .mc-field-group .asterisk {
-    top: 40px;
-}
-
-#mc_embed_signup h2 {
-    font-weight: bold;
-    padding: 0;
-    margin: 15px 0;
-    font-size: 1.4em;
-}
-
-#mc_embed_signup .button {
-    background-color: #ed693b;
-    margin: auto;
 }
