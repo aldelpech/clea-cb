@@ -11,7 +11,6 @@ get_header(); // Loads the header.php template. ?>
 
 	<section class="cb-post-list">
 
-	<h2>Les derniers articles</h2>
 		<!-- Begin excerpts area. -->
 		<?php 
 		// set the "paged" parameter (use 'page' if the query is on a static front page)
@@ -69,7 +68,7 @@ get_header(); // Loads the header.php template. ?>
 			'mid_size' => 1,
 			'prev_text' => __( 'Plus récents', 'clea-base' ),
 			'next_text' => __( 'Plus anciens', 'clea-base' ),
-			'screen_reader_text' => __( 'autres articles', 'clea-base' ),
+			'screen_reader_text' => __( 'Autres articles', 'clea-base' ),
 		) ); ?>
 		
 		

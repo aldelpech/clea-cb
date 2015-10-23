@@ -78,7 +78,7 @@ stressed-linen.png
 }
 
 
-#menu-primary li li:hover,
+/* #menu-primary li li:hover,
 #menu-primary li li:hover > a,
 #menu-primary li a:hover, 
 #menu-primary li:hover > a, 
@@ -87,9 +87,28 @@ stressed-linen.png
 	background-color: #4c858d ;
 	text-decoration: none;
 	
-}
+} */
+
+
 
 /* élimine le background défectueux des menus avec enfants ! */
+
+#menu-primary li a:hover, 
+#menu-primary li:hover >a, 
+#menu-primary li a:active,
+#menu-primary li.current-menu-item >a {
+	background: #4c858d !important ;
+	color: white; 
+}
+
+#menu-primary ul ul {
+    background: #4c858d !important ;
+}
+
+#menu-primary li li a {
+	color: white ;
+}	
+	
 #menu-secondary {
 	background: #4c858d !important ;
 	border: 1px solid #4c858d; 
@@ -139,14 +158,18 @@ stressed-linen.png
 .page-numbers.current, 
 a.page-numbers:hover {
 	background-color: #ed693b ; 	/* secondary color */
-	color: #4c858d !important; 		/* primary color */
 }
  
 .page-numbers, 
 .page-links a, 
 .loop-nav a {
-	background-color: #f6f6eb ; 	/* primary color */
-	color : #4c858d; 				/* secondary color */
+	background-color: #ddd;
+    color: #ed693b;
+	border-radius: 50%;
+}
+
+nav.navigation.pagination h2.screen-reader-text {
+    display: none;
 }
 
 /* responsive
@@ -157,8 +180,15 @@ a.page-numbers:hover {
 	#sidebar-subsidiary .widget {
 		margin: 0 0.9% 0 0 !important
 	}
+	
+	.cb-post-list {
+		float: left;
+		width: 63.265%;
+		overflow: visible;
+	}
 
 }
+
 
 /**********************************************************
 * incorporation police corradine 
@@ -1225,6 +1255,9 @@ footer#footer {
 .header-image {
 	max-width: 1500px;
     height: 400px;
+	border-radius: 0;
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
 }
 
 aside#sidebar-subsidiary {
@@ -1237,6 +1270,7 @@ header#header {
     max-width: 1500px;
 	padding-left: 0 !important;
 	padding-right: 0 !important;
+	
 }
 
 .full-page {
