@@ -652,10 +652,10 @@ abbr[title], time[title], acronym[title] {
 
 	a:hover img, a:hover .avatar {
 		box-shadow: none;
-		-webkit-animation: tada 1s;
-		animation: tada 1s;
-		-moz-animation: tada 1s;
-		-o-animation: tada 1s;
+		-webkit-animation: swing 1s;
+		animation: swing 1s;
+		-moz-animation: swing 1s;
+		-o-animation: swing 1s;
 	}
 	
 	/* .img-inside est lié à la fonction jquery 
