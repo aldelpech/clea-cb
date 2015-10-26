@@ -927,7 +927,7 @@ hr {
 
 	.bloc-article  h3.entry-title  {
 		margin-bottom: 6px;
-		margin-top: 6px;
+		margin-top: 6px !important;
 		line-height: 1.4;
 		font-weight: 600;
 	}
@@ -1217,6 +1217,7 @@ footer#footer {
 #menu-primary{
 	max-width: 1275px;
 	float: right ;
+	padding-top: 13px;
 }
 
 
@@ -1302,7 +1303,10 @@ header#header {
 .bloc-article img {
 	max-height: 350px;
     overflow: hidden;
-    width: 100%;
+	max-width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	display: block;	
 }
 
 .bloc-article {
@@ -1350,16 +1354,23 @@ header.entry-header {
 a.read-more::before {
     content: "\f06e";
     font-family: FontAwesome;
+	font-size: 120%;
     margin-left: 2px;
     margin-right: 6px;
 	text-decoration: none;
     display: inline-block;
 }
 
+a.read-more {
+    font-variant: small-caps;
+	font-size: 110%;
+}
+
 .bloc-article .entry-summary {
-    font-size: 90%;
+    font-size: 100%;
     padding: 0 10px 5px 10px;
     display: inline-block;
+	line-height: 1.6;
 }
 
 /********************************************
