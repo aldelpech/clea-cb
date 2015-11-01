@@ -7,7 +7,7 @@ if ( is_singular() || is_front_page() )
 <div class="loop-meta">
 
 	<?php if ( is_home() && !is_front_page() ) { ?>
-		<h1 class="loop-title">Le Blog</h1>
+		<h1 class="loop-title"><?php echo get_post_field( 'post_title', get_queried_object_id() ); ?></h1>
 
 	<?php } elseif ( is_category() ) { ?>
 
