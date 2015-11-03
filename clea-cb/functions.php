@@ -17,6 +17,9 @@
 // Do theme setup on the 'after_setup_theme' hook.
 add_action( 'after_setup_theme', 'clea_cecile_b_theme_setup', 5 ); 
 
+// filter the related posts plugin so that only same category are displayed
+add_action( 'admin_init', 'clea_cecile_b_filter_related_posts' );
+
 
 function clea_cecile_b_theme_setup() {
 
@@ -43,7 +46,8 @@ function clea_cecile_b_theme_setup() {
 
 	// add theme support for WordPress featured image and post thumbnails
 	add_theme_support( 'featured-header' );
-	add_theme_support( 'post-thumbnails' ); 
+	add_theme_support( 'post-thumbnails' ); 	
+	
 	
 } 
 
@@ -85,5 +89,35 @@ function clea_cecile_b_remove_custom($wp_customize) {
   $wp_customize->remove_control('theme-fonts-header');  	// removes the whole title font control
   // $wp_customize->remove_section('fonts');					// remove whole font section - OK
 }
+
+function clea_cecile_b_filter_related_posts() {
+		/* to link only same categories with the related post for Wordpress plugin
+	* see https://www.relatedpostsforwp.com/documentation/only-link-posts-in-same-category/
+	*/
+	
+	if ( is_plugin_active( 'related-posts-for-wp/related-posts-for-wp.php' ) ) {
+		add_filter( 'rp4wp_get_related_posts_sql', 'rp4wp_force_same_category', 11, 3 );
+	} 
+}
+
+
+function rp4wp_force_same_category( $sql, $post_id, $post_type ) {
+	global $wpdb;
+
+	if ( 'post' !== $post_type ) {
+		return $sql;
+	}
+
+	$sql_replace = "
+	INNER JOIN " . $wpdb->term_relationships . " ON (P.ID = " . $wpdb->term_relationships . ".object_id)
+	INNER JOIN " . $wpdb->term_taxonomy . " ON (" . $wpdb->term_relationships . ".term_taxonomy_id = " . $wpdb->term_taxonomy . ".term_taxonomy_id)
+	WHERE 1=1
+	AND " . $wpdb->term_taxonomy . ".taxonomy = 'category'
+	AND " . $wpdb->term_taxonomy . ".term_id IN ( SELECT TT.term_id FROM " . $wpdb->term_taxonomy . " TT INNER JOIN " . $wpdb->term_relationships . " TR ON TR.term_taxonomy_id = TT.term_taxonomy_id WHERE TR.object_id = " . $post_id . " )
+	";
+
+	return str_ireplace( 'WHERE 1=1', $sql_replace, $sql );
+}
+
 
 ?>
