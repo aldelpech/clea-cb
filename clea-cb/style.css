@@ -260,8 +260,8 @@ h6 {
 
 #sidebar-secondary .widget-title,
 #sidebar-primary .widget-title {
-    padding: 5px;
-    font-size: 1.125rem;
+	padding: 5px 0;
+    font-size: 1.45rem;
     color: #4c858d;
     background: none;
     border-bottom: 1px dotted #ed693b;
@@ -598,8 +598,12 @@ a:visited {
     list-style: square;
 }
 
-abbr[title], time[title], acronym[title] {
+abbr[title], acronym[title] {
     background-color: #f6f6eb;
+}
+
+time[title] {
+    background-color: transparent;
 }
 
 /* Réglage des images */
@@ -907,11 +911,7 @@ hr {
 		border: 1px solid #ed693b !important;
 	}
 */
-	.bloc-article .entry-summary {
-		font-size: 95%;
-		line-height: 1.4;
-		padding: 0 5px 5px 5px;
-	}
+
 
 	.bloc-article .entry-meta{
 		margin-bottom: 5px;
@@ -1367,11 +1367,13 @@ a.read-more {
 }
 
 .bloc-article .entry-summary {
-    font-size: 100%;
+    font-size: 97%;
     padding: 0 10px 5px 10px;
     display: inline-block;
-	line-height: 1.6;
+	line-height: 1.5;
 }
+
+
 
 /********************************************
 * mailchimp forms 
@@ -1403,4 +1405,65 @@ a.read-more {
 #mc_embed_signup .button {
     background-color: #ed693b;
     margin: auto;
+}
+
+/* pour la box qui s'affiche en bas des articles */
+#box_signup #mc-embedded-subscribe-form input[name="EMAIL"],
+#box_signup #mc-embedded-subscribe-form input[name="FNAME"],
+#box_signup #mc-embedded-subscribe-form input[id="mc-embedded-subscribe"] {
+    width: 30%;
+    display: inline-block;
+}
+
+#box_signup #mc-embedded-subscribe-form input.robotic {
+    visibility: hidden;
+	display: inline-block;
+    width: 0%;
+}
+
+#box_signup {
+    text-align: right;
+}
+
+.stb-content h6 {
+    margin-bottom: 10px;
+}
+
+.stb-content p {
+    height: 0;
+    margin-bottom: -10px !important;
+}
+
+/************ barre de partage *****************************/
+#fsb-social-bar {
+    border-bottom: 2px solid #ed693b !important;
+    border-top: 2px solid #ed693b !important;
+}
+
+/* taille textes **********************************/
+.textwidget {
+    font-size: 95%;
+}
+	
+/* zone de commentaires ****************/
+
+li.comment {
+    background: #f3f3f3;
+	background-image: none;
+}
+
+.comment-author cite {
+    font-family: CorradineHandwriting, Georgia, Palatino, Times New Roman, serif !important;
+    font-size: 1.5rem;
+    color: #ed693b;
+    font-weight: bold;
+}
+
+ol.children li.comment p {
+    font-size: 110%;
+    line-height: 1.5;
+}
+
+.comment-author {
+    margin-bottom: 8px;
 }
