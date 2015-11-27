@@ -5,14 +5,27 @@
 * voir essais et sources sur http://codepen.io/aldelpech/pen/epwNBz
 ****************************************/
 
+.list-gallery .bloc-article .categories {
+    background-color: #ed693b;
+    border-radius: 5px 15px 15px 5px;
+    -moz-border-radius: 5px 15px 15px 5px;
+    -webkit-border-radius: 5px 15px 15px 5px;
+    padding: 8px;
+    float: left;
+    margin-left: -20px;
+    position: relative;
+    top: 15px;
+}
+
+
 .gallery-zone .bloc-article a img {
 	border: 2px solid red !important;
 }
 
 
 section.cb-post-list {
-    padding: 0;
-    background-color: lightcoral;
+    /*     padding: 0;
+	background-color: lightcoral; */
 }
 
 .ribbon-cat a {

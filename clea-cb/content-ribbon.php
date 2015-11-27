@@ -17,33 +17,19 @@
 		</footer><!-- .entry-footer -->		
 		
 	</article><!-- .hentry -->
+
 	<?php } else { ?>
-<div class="gallery-zone">
-	<!-- 
-	<div class="background">
-	-->
-		<article id="post-<?php the_ID(); ?>" class="bloc-article <?php hybrid_entry_class(); ?>">
-			<div class="title">
+	<article id="post-<?php the_ID(); ?>" class="bloc-article <?php hybrid_entry_class(); ?>">
 
-				<span class="ribbon-cat"><?php the_category(' '); ?></span>
-				<?php if ( current_theme_supports( 'get-the-image' ) ) get_the_image( array( 'meta_key' => 'Thumbnail', 'size' => 'large' ) ); ?>			
+		<span class="categories"><?php the_category(' '); ?></span>	
+		<?php if ( current_theme_supports( 'get-the-image' ) ) get_the_image( array( 'meta_key' => 'Thumbnail', 'size' => 'large' ) ); ?>
 
-			</div>	
+		<header class="entry-header">
+			<?php echo apply_atomic_shortcode( 'entry_title', '[entry-title tag="h3"]' ); ?>
+		</header><!-- .entry-header -->
+		<span class="entry-summary"><?php echo(get_the_excerpt()); ?> <a class="read-more" href="<?php the_permalink(); ?>">Lire L'article</a></span>
 
 
-			<div class="title-triangle left">&nbsp;</div>
-			<!--
-			<div class="title-triangle right">&nbsp;</div>
-			-->
-			<header class="entry-header">
-				<?php echo apply_atomic_shortcode( 'entry_title', '[entry-title tag="h3"]' ); ?>
-			</header><!-- .entry-header -->
-			<span class="entry-summary"><?php echo(get_the_excerpt()); ?> <a class="read-more" href="<?php the_permalink(); ?>">Lire L'article</a></span>
-
-
-			</p>
-		</article><!-- .hentry -->
-	<!-- </div>  class="background"-->
-</div>
+		</p>
+	</article><!-- .hentry -->
 	<?php } ?>
-
