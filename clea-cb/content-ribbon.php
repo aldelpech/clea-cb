@@ -24,10 +24,12 @@
 	-->
 		<article id="post-<?php the_ID(); ?>" class="bloc-article <?php hybrid_entry_class(); ?>">
 			<div class="title">
+
 				<span class="ribbon-cat"><?php the_category(' '); ?></span>
+				<?php if ( current_theme_supports( 'get-the-image' ) ) get_the_image( array( 'meta_key' => 'Thumbnail', 'size' => 'large' ) ); ?>			
+
 			</div>	
-			
-			<?php if ( current_theme_supports( 'get-the-image' ) ) get_the_image( array( 'meta_key' => 'Thumbnail', 'size' => 'large' ) ); ?>
+
 
 			<div class="title-triangle left">&nbsp;</div>
 			<!--
