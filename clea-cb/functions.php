@@ -51,21 +51,21 @@ function clea_cecile_b_theme_setup() {
 	
 } 
 
-
-
-	
- 
 function clea_cecile_b_enqueue_styles() {
 
 	// feuille de style pour l'impression
 	wp_enqueue_style( 'print', get_stylesheet_directory_uri() . '/css/print.css', array(), false, 'print' );
+
+
+	if ( is_page_template( 'page/cb-front-page-ribbon.php' ) ) {
+		
+		wp_enqueue_style( 'test-ruban', get_stylesheet_directory_uri() . '/css/test1.css' );
 	
-	if ( is_page_template( 'page/ac-front-page-template.php' ) ) {
-		wp_enqueue_style( 'flexslider', get_template_directory_uri() . '/css/flexslider.css' , array( '25px' ) );
 	}
 	
-	if ( is_page_template( 'page/cb-front-page-test1.php' ) ) {
-		wp_enqueue_style( 'test1-masonry', get_stylesheet_directory_uri() . '/css/test1.css' );
+	if ( is_page_template( 'page/ac-front-page-template.php' ) ) {
+		
+		wp_enqueue_style( 'flexslider', get_template_directory_uri() . '/css/flexslider.css' , array( '25px' ) );
 	}
 	
 }
