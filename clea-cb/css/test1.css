@@ -5,13 +5,14 @@
 * voir essais et sources sur http://codepen.io/aldelpech/pen/epwNBz
 ****************************************/
 
-.cb-post-list {
-	padding: 30px;
-	background-color: #d5d5d5;
+section.cb-post-list {
+    padding: 0;
+    background-color: lightcoral;
 }
 
 .ribbon-cat a {
     color: white;
+    font-size: 0.75rem;
 }
 
 .list-gallery {
@@ -47,13 +48,19 @@
 
 .gallery-zone .background>article>.title {
     margin: 0 -30px 28px -30px;
-    background:  #F60 ;
-    text-align: center;
-    color: #FFF;
+    background:  #ed693b /* #F60*/ ;
+    text-align: left;
     text-transform: uppercase;
     height: 35px;
     line-height: 35px;
     font-weight: bold;
+	max-width: 100%;
+    display: inline-block;
+    padding-right: 5%;
+	padding-left: 5%;
+	border-radius: 5px 15px 15px 0px;
+    -moz-border-radius: 5px 15px 15px 0px;
+    -webkit-border-radius: 5px 15px 15px 0px;
 }
 
 .gallery-zone .background>article>.title span {
