@@ -5,6 +5,11 @@
 * voir essais et sources sur http://codepen.io/aldelpech/pen/epwNBz
 ****************************************/
 
+.gallery-zone .bloc-article a img {
+	border: 2px solid red !important;
+}
+
+
 section.cb-post-list {
     padding: 0;
     background-color: lightcoral;
@@ -30,23 +35,21 @@ section.cb-post-list {
     background: lightblue;
 }
 
-.gallery-zone .background {
+.gallery-zone article {
     background: #E3DCCD;
-    /* width: 90%; */
+    width: 97%;
     margin: 0 15px;
     padding: 28px 15px 13px 15px;
 }
 
+/*
 .gallery-zone article {
     background: white;
     width: 100%;
-    /* 
-	margin: 0 15px;
-    padding: 28px 15px 13px 15px;
-	*/
 }
+*/
 
-.gallery-zone .background>article>.title {
+.gallery-zone article>.title {
     margin: 0 -30px 28px -30px;
     background:  #ed693b /* #F60*/ ;
     text-align: left;
@@ -63,7 +66,7 @@ section.cb-post-list {
     -webkit-border-radius: 5px 15px 15px 0px;
 }
 
-.gallery-zone .background>article>.title span {
+.gallery-zone article>.title span {
     display: block;
 }
 

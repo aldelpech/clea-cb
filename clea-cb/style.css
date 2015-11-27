@@ -1469,3 +1469,16 @@ ol.children li.comment p {
 .comment-author {
     margin-bottom: 8px;
 }
+
+/* Zone auteur d'un article **************/
+.author-profile {
+    background-image: none;
+}
+
+/* pagination article ****/
+.page-numbers.current, a.page-numbers:hover, .page-links a:hover, .loop-nav a:hover {
+    color: white;
+    background: #4c858d;
+    text-decoration: underline;
+}
+

@@ -19,8 +19,9 @@
 	</article><!-- .hentry -->
 	<?php } else { ?>
 <div class="gallery-zone">
+	<!-- 
 	<div class="background">
-
+	-->
 		<article id="post-<?php the_ID(); ?>" class="bloc-article <?php hybrid_entry_class(); ?>">
 			<div class="title">
 				<span class="ribbon-cat"><?php the_category(' '); ?></span>
@@ -40,7 +41,7 @@
 
 			</p>
 		</article><!-- .hentry -->
-	</div>
+	<!-- </div>  class="background"-->
 </div>
 	<?php } ?>
 
