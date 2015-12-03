@@ -931,30 +931,73 @@ hr {
 		font-weight: 600;
 	}
 
+	.bloc-article .categories {
+		background-color:  #ed693b;
+		border-radius: 0 15px 15px 5px;
+		-moz-border-radius: 0 15px 15px 5px;
+		-webkit-border-radius: 0 15px 15px 5px;
+		padding: 8px 8px 8px 25px;
+		float: left;
+		margin-left: -20px;
+		position: relative;
+		top: 25px;
+		z-index: 1000;
+	}
 
+	.bloc-article .categories::before {
+		/* see http://codepen.io/aldelpech/pen/epwNBz */
+		left: 0;
+		border-color: white #538eab  #538eab white  ; 
+		content: " ";
+		position: absolute;
+		border-style: solid;
+		border-width: 6px 10px 6px 10px;
+		width: 0;
+		height: 0;
+		top: -12px;
+	}	
+	
 	
 	.bloc-article .categories  a {
-		color: #4c858d;
-		font-size: 110%;
+		color: white;
+		font-size: 95%;
 		font-weight: 600 ;
 		text-decoration: none;
 		font-variant: small-caps;
 	}
 
-	.bloc-article .categories a::after {
+	
+/* 	.bloc-article .categories a::after {
 		content: "\f061";
 		font-family: FontAwesome;
 		color: #4c858d;
 		margin-left: 6px;
 		margin-right: 0;;
 	}
+*/
 
+	.bloc-article .categories a::after {
+		content: "\f178";
+		font-family: FontAwesome;
+		color: white;
+		margin-left: 6px;
+		margin-right: 0;
+	}
+	
 	.bloc-article .categories:hover,
 	.bloc-article .categories:hover a,
 	.bloc-article .categories:hover a::after {
 		color: #4c858d ;
 		background-color: #f6f6eb;
 	}
+
+
+
+
+
+
+
+
 
 	.bloc-article .entry-byline {
 		display:inline-block;
@@ -1315,57 +1358,21 @@ header#header {
     padding-right: 1%;
 }
 
-.bloc-article .categories a{
-	color: white;
-}
-
-.bloc-article .categories {
-	background-color:  #ed693b;
-	border-radius: 15px 5px 5px 15px;
-	-moz-border-radius: 15px 5px 5px 15px;
-	-webkit-border-radius: 15px 5px 5px 15px;
-	padding: 8px 8px 8px 25px;
-    float: left;
-    margin-left: -20px;
-    position: relative;
-    top: 15px;
-    z-index: 1000;
-}
 
 
 
 
 
 
-/* 
-.bloc-article .categories {
-    background-color: #ed693b;
-    border-radius: 15px 5px 5px 15px;
-    -moz-border-radius: 15px 5px 5px 15px;
-    -webkit-border-radius: 15px 5px 5px 15px;
-    padding: 8px;
-    float: right;
-    margin-right: -15px;
-    position: relative;
-    top: -20px;
-}
-*/
 
-.bloc-article .categories a::after {
-    content: "\f178";
-    font-family: FontAwesome;
-    color: white;
-    margin-left: 6px;
-    margin-right: 0;
-}
+
+
 
 header.entry-header {
     text-align: center;
 }
 
-.bloc-article .categories a {
-    font-size: 95%;
-}
+
 
 a.read-more::before {
     content: "\f06e";
