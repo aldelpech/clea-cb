@@ -20,6 +20,9 @@ add_action( 'after_setup_theme', 'clea_cecile_b_theme_setup', 5 );
 // filter the related posts plugin so that only same category are displayed
 add_action( 'admin_init', 'clea_cecile_b_filter_related_posts' );
 
+# Change Read More link in automatic Excerpts
+remove_filter('get_the_excerpt', 'wp_trim_excerpt');
+add_filter('get_the_excerpt', 'wpse_custom_wp_trim_excerpt');
 
 function clea_cecile_b_theme_setup() {
 
@@ -90,6 +93,57 @@ function clea_cecile_b_remove_custom($wp_customize) {
   // $wp_customize->remove_section('fonts');					// remove whole font section - OK
 }
 
+/***************************************************************
+* a shortcode to display 5 last sticky posts (mis en avant)
+*
+* source http://www.wpbeginner.com/wp-tutorials/how-to-display-the-latest-sticky-posts-in-wordpress/
+***************************************************************/
+
+function clea_latest_sticky( $atts ) { 
+
+	$values = shortcode_atts(array(
+		'excerpt' => 'no'
+	),$atts);  
+
+	/* Get all sticky posts */
+	$sticky = get_option( 'sticky_posts' );
+
+	/* Sort the stickies with the newest ones at the top */
+	rsort( $sticky );
+
+	/* Get the 5 newest stickies (change 5 for a different number) */
+	$sticky = array_slice( $sticky, 0, 5 );
+
+	/* Query sticky posts */
+	$the_query = new WP_Query( array( 'post__in' => $sticky, 'ignore_sticky_posts' => 1 ) );
+	// The Loop
+	if ( $the_query->have_posts() ) {
+		$return = '<ul>';
+		while ( $the_query->have_posts() ) {
+			$the_query->the_post();
+			
+			if($values['excerpt'] == 'yes'){
+				$return .= '<li><a href="' .get_permalink(). '" title="'  . get_the_title() . '">' . get_the_title() . '</a><br />' . get_the_excerpt(). '</li>';
+			} else {
+				$return .= '<li><a href="' .get_permalink(). '" title="'  . get_the_title() . '">' . get_the_title() . '</a></li>';
+			}	
+			
+		}
+		$return .= '</ul>';
+		
+	} else {
+		// no posts found
+	}
+	/* Restore original Post Data */
+	wp_reset_postdata();
+
+	return $return; 
+
+} 
+add_shortcode('latest_stickies', 'clea_latest_sticky');
+
+
+
 function clea_cecile_b_filter_related_posts() {
 		/* to link only same categories with the related post for Wordpress plugin
 	* see https://www.relatedpostsforwp.com/documentation/only-link-posts-in-same-category/
@@ -118,6 +172,84 @@ function rp4wp_force_same_category( $sql, $post_id, $post_type ) {
 
 	return str_ireplace( 'WHERE 1=1', $sql_replace, $sql );
 }
+
+
+function wpse_allowedtags() {
+    // Add custom tags to this string
+	// <a>,<img>,<video>,<script>,<style>,<audio> are not in
+    return '<br>,<em>,<i>,<ul>,<ol>,<li>,<p>'; 
+}
+
+if ( ! function_exists( 'wpse_custom_wp_trim_excerpt' ) ) : 
+
+    function wpse_custom_wp_trim_excerpt($wpse_excerpt) {
+		$raw_excerpt = $wpse_excerpt;
+		
+		// text for the "read more" link
+				
+		$rm_text = __( ' lire l\'article', 'stargazer' ) ;
+		$excerpt_end = ' <a class="read-more" href="'. esc_url( get_permalink() ) . '">' . $rm_text . '</a>';
+		
+        if ( '' == $wpse_excerpt ) {  
+
+            $wpse_excerpt = get_the_content('');
+            $wpse_excerpt = strip_shortcodes( $wpse_excerpt );
+            $wpse_excerpt = apply_filters('the_content', $wpse_excerpt);
+            $wpse_excerpt = str_replace(']]>', ']]&gt;', $wpse_excerpt);
+            $wpse_excerpt = strip_tags($wpse_excerpt, wpse_allowedtags()); /*IF you need to allow just certain tags. Delete if all tags are allowed */
+
+            //Set the excerpt word count and only break after sentence is complete.
+                $excerpt_word_count = 75;
+                $excerpt_length = apply_filters('excerpt_length', $excerpt_word_count); 
+                $tokens = array();
+                $excerptOutput = '';
+                $count = 0;
+
+                // Divide the string into tokens; HTML tags, or words, followed by any whitespace
+                preg_match_all('/(<[^>]+>|[^<>\s]+)\s*/u', $wpse_excerpt, $tokens);
+
+                foreach ($tokens[0] as $token) { 
+
+                    if ($count >= $excerpt_length && preg_match('/[\,\;\?\.\!]\s*$/uS', $token)) { 
+                    // Limit reached, continue until , ; ? . or ! occur at the end
+                        $excerptOutput .= trim($token);
+                        break;
+                    }
+
+                    // Add words to complete sentence
+                    $count++;
+
+                    // Append what's left of the token
+                    $excerptOutput .= $token;
+                }
+
+            $wpse_excerpt = trim(force_balance_tags($excerptOutput));
+		   
+				// $wpse_excerpt .= $excerpt_end ;
+				$excerpt_more = apply_filters( 'excerpt_more', ' ' . $excerpt_end ); 
+
+                $pos = strrpos($wpse_excerpt, '</');
+                if ($pos !== false) {
+					// Inside last HTML tag
+					$wpse_excerpt = substr_replace($wpse_excerpt, $excerpt_end, $pos, 0); // Add read more next to last word 
+				} else {
+					// After the content
+					$wpse_excerpt .= $excerpt_more; //Add read more in new paragraph 
+				}
+                
+            return $wpse_excerpt;   
+
+        } 
+		
+		// add read more link to the manual extract
+		$wpse_excerpt .= $excerpt_end ;
+		// return the manual extract
+		// DELETE the 'AAAA !' . before $wpse_excerpt : it's used to show the manual extracts for debugging. 
+        return apply_filters('wpse_custom_wp_trim_excerpt', $wpse_excerpt, $raw_excerpt);
+    }
+  
+endif; 
+
 
 
 ?>
