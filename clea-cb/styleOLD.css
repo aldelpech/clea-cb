@@ -902,46 +902,31 @@ hr {
 
 	.bloc-article .categories {
 		background-color: rgba(237,105,59,0.8);  /* #ed693b */
-		margin-right: 1em;
-		/* padding: .75em 1.25em .75em .75em; */
-		padding: .5em 1.25em .5em .75em;
-		border-radius: 0 .5em .5em 0;
-		box-shadow: inset 0 .062em 0 rgba(255,255,255,.6), 0 .125em .25em rgba(0,0,0,.2);
-		white-space: nowrap;
+		border-radius: 0 15px 15px 5px;
+		-moz-border-radius: 0 15px 15px 5px;
+		-webkit-border-radius: 0 15px 15px 5px;
+		padding: 8px 8px 8px 25px;
 		float: left;
+		margin-left: -20px;
 		position: relative;
-		left: 0;
-		top: 2em;
+		top: 25px;
 		z-index: 1000;
-		transition: background-color .2s ease-in-out;
 	}
 
-	.bloc-article .categories::before,
-	.bloc-article .categories::after	{
-		/* see http://codepen.io/aldelpech/pen/epwNBz */
-		position: absolute;
-		background-color: inherit;
-		content: "";	
-	}
-	
 	.bloc-article .categories::before {
-		top: -.5em;
-		left: -.5em; 
-		width: .5em;
-		height: 3em;
-		border-radius: 0 0 0 .5em;
-		background-image: linear-gradient(to right, rgba(0,0,0,.2) 0%, rgba(0,0,0,0) 100%); 
+		/* see http://codepen.io/aldelpech/pen/epwNBz */
+		left: 0;
+		border-color: white rgba(83,142,171,0.8)  rgba(83,142,171,0.8) white  ; 
+		/* rgba(83,142,171,0.8) = #538eab */
+		content: " ";
+		position: absolute;
+		border-style: solid;
+		border-width: 8px 10px 8px 10px;  /* 6px 10px 6px 10px */
+		width: 0;
+		height: 0;
+		top: -15px;
 	}	
-
-	.bloc-article .categories::after {
-		top: -1em;
-		left: -.5em;
-		width: .5em;
-		height: 1em;
-		border-radius: .5em 0 0 .5em;
-		background-image: linear-gradient(to right, rgba(0,0,0,0) 0%, rgba(0,0,0,.2) 100%);
-		box-shadow: 0 .062em 0 rgba(255,255,255,.6);		
-	}		
+	
 	
 	.bloc-article .categories  a {
 		color: white;
@@ -958,13 +943,12 @@ hr {
 		color: white;
 		margin-left: 6px;
 		margin-right: 0;
-		background-color: inherit;
 	}
 	
 	.bloc-article .categories:hover,
 	.bloc-article .categories:hover a,
 	.bloc-article .categories:hover a::after {
-		color: #4c858d ;  
+		color: 5#38eab ;  
 		background-color: #D9D9D9 ;
 		
 	}
