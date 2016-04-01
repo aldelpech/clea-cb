@@ -61,6 +61,14 @@ hgroup#branding {
   margin: 1px auto -35px;
 }
 
+/* pour plugin Max Mega Menu */
+#mega-menu-wrap-primary #mega-menu-primary {
+    max-width: 1275px;
+    float: right;
+}
+
+
+
 /********************************************************** 
 réglage couleurs
 ***********************************************************/
