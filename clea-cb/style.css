@@ -765,8 +765,8 @@ time[title] {
 
 .pp-comment {
 	display: inline-block;
-    background-color: #4c858d #fff;
-    color: #fff;
+    background-color: #fff;
+    color: #423432 ;
     border-radius: 10px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
@@ -784,7 +784,7 @@ time[title] {
 	font-family: FontAwesome;
     font-size: 25px;
     font-weight: normal;
-	color: #fff;
+	color: #4c858d ;
     margin-right: 5px;
 	padding: 1.5%;
 }
