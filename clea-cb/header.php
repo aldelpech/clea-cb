@@ -47,6 +47,8 @@
 
 		<div class="full-page">
 			<?php if ( get_header_image() ) echo '<img class="header-image" src="' . esc_url( get_header_image() ) . '" alt="" />'; ?>
+			
+			
 		</div>
 		
 		<div id="main">

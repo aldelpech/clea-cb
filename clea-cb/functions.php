@@ -48,7 +48,7 @@ function clea_cecile_b_theme_setup() {
 	); 
 
 	// add theme support for WordPress featured image and post thumbnails
-	add_theme_support( 'featured-header' );
+	// add_theme_support( 'featured-header' );
 	add_theme_support( 'post-thumbnails' ); 	
 	
 	
@@ -186,8 +186,12 @@ if ( ! function_exists( 'wpse_custom_wp_trim_excerpt' ) ) :
 		$raw_excerpt = $wpse_excerpt;
 		
 		// text for the "read more" link
-				
-		$rm_text = __( ' lire l\'article', 'stargazer' ) ;
+		if ( ! is_page( 8207 ) ) {
+			$rm_text = __( ' lire l\'article', 'stargazer' ) ;
+		} else {
+			$rm_text = __( ' Lire le témoignage complet', 'stargazer' ) ;
+		}
+			
 		$excerpt_end = ' <a class="read-more" href="'. esc_url( get_permalink() ) . '">' . $rm_text . '</a>';
 		
         if ( '' == $wpse_excerpt ) {  
