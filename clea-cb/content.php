@@ -25,7 +25,7 @@
 				</div><!-- .entry-content -->
 
 				<footer class="entry-footer">
-					<?php echo apply_atomic_shortcode( 'entry_meta', '<div class="entry-meta">' . __( '[entry-terms taxonomy="wpm-testimonial-category" before="Posted in "] [entry-terms before="Tagged "]', 'clea-base' ) . '</div>' ); ?>
+					<?php // echo apply_atomic_shortcode( 'entry_meta', '<div class="entry-meta">' . __( '[entry-terms taxonomy="wpm-testimonial-category" before="Posted in "] [entry-terms before="Tagged "]', 'clea-base' ) . '</div>' ); ?>
 				</footer><!-- .entry-footer -->		
 
 				<div class="post-nav">
