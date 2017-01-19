@@ -18,7 +18,7 @@
 					<?php the_content(); ?>
 					<span class="entry-terms clea-temoin">
 						<?php echo get_post_meta( get_the_ID(), 'first_name', true )?> <?php echo get_post_meta( get_the_ID(), 'last_name', true )?> <span class="clea-fonctions"><a href="<?php echo get_post_meta( get_the_ID(), 'company_website', true )?>"><?php echo get_post_meta( get_the_ID(), 'company_name', true )?></a>. </span> 
-						
+						<p class="testimonial-activite"><?php echo get_post_meta( get_the_ID(), 'activite', true )?></p>
 						
 					</span>
 					

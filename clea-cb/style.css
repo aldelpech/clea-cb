@@ -58,6 +58,11 @@ span.clea-fonctions {
 	font-weight: 400;
 }
 
+p.testimonial-activite {
+	font-weight: 400;
+	font-style: italic;
+}
+
 span.entry-terms.clea-temoin {
 	font-weight: 600;
 	margin-bottom: 20px;
