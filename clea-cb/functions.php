@@ -51,6 +51,9 @@ function clea_cecile_b_theme_setup() {
 	// add_theme_support( 'featured-header' );
 	add_theme_support( 'post-thumbnails' ); 	
 	
+	// add featured images to rss feed
+	add_filter('the_excerpt_rss', 'c2b_featuredtoRSS');
+	add_filter('the_content_feed', 'c2b_featuredtoRSS');
 	
 } 
 
@@ -254,6 +257,15 @@ if ( ! function_exists( 'wpse_custom_wp_trim_excerpt' ) ) :
   
 endif; 
 
-
+function c2b_featuredtoRSS( $content ) {
+	// https://woorkup.com/show-featured-image-wordpress-rss-feed/
+	
+	global $post;
+	if ( has_post_thumbnail( $post->ID ) ){
+		$content = '<div>' . get_the_post_thumbnail( $post->ID, 'thumbnail', array( 'style' => 'margin-bottom: 15px; margin-right: 15px; float: left;' ) ) . '</div>' . $content;
+	}
+	
+	return $content;
+}
 
 ?>
